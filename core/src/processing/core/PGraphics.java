@@ -2421,6 +2421,10 @@ public class PGraphics extends PImage implements PConstants {
     vertex(x, y);
     endShape();
   }
+  
+  public void point(FVector coord){
+    this(coord.getX(),coord.getY());
+  }
 
   /**
    * @param z z-coordinate of the point
@@ -2472,6 +2476,10 @@ public class PGraphics extends PImage implements PConstants {
     vertex(x1, y1, z1);
     vertex(x2, y2, z2);
     endShape();
+  }
+  
+  public void line(FVector start, FVector end){
+    this.line(start.getX(),start.getY(),end.getX(),end.getY());
   }
 
   /**
@@ -6586,6 +6594,17 @@ public class PGraphics extends PImage implements PConstants {
     colorCalc(v1, v2, v3, alpha);
     strokeFromCalc();
   }
+  public void stroke(Color color){
+    this.stroke(color.getHue.getValue(),colro.getSaturation.getValue(),color.getBrightness.getValue(),color.getAlpha.getValue());
+  }
+  
+  public void stroke(Subcolor hue, Subcolor saturation, Subcolor brightness, Subcolor alpha){
+    this.stroke(hue.getValue(),saturation.getValue(),brightness.getValue(),alpha.getValue());
+  }
+  
+  public void stroke(Subcolor hue, Subcolor saturation, Subcolor brightness){
+    this.stroke(hue.getValue(),saturation.getValue(),brightness.getValue(),255);
+  }
 
 
   protected void strokeFromCalc() {
@@ -6825,6 +6844,18 @@ public class PGraphics extends PImage implements PConstants {
   public void fill(float v1, float v2, float v3, float alpha) {
     colorCalc(v1, v2, v3, alpha);
     fillFromCalc();
+  }
+  
+  public void fill(Color color){
+    this.fill(color.getHue().getValue(),color.getSaturation.getValue(),color.getBrightness.getValue(),color.getAlpha.getValue());
+  }
+  
+  public void fill(Subcolor hue, Subcolor saturation, Subcolor brightness, Subcolor alpha){
+    this.fill(hue.getValue(),saturation.getValue(),brightness.getValue(),alpha.getValue());
+  }
+  
+  public void fill(Subcolor hue, Subcolor saturation, Subcolor brightness){
+    this.fill(hue.getValue(),saturation.getValue(),brightness.getValue(),255);
   }
 
 
